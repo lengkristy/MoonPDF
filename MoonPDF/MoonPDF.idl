@@ -1,0 +1,59 @@
+// MoonPDF.idl : ActiveX 控件项目的类型库源。
+
+// 此文件将由 MIDL 编译器工具处理以
+// 产生类型库(MoonPDF.tlb)，该类型库将成为
+// MoonPDF.ocx.
+
+#include <olectl.h>
+#include <idispids.h>
+
+[ uuid(0CD40F6A-42E2-41DE-95A4-F74DC7F2712C), version(1.0),
+  control ]
+library MoonPDFLib
+{
+	importlib(STDOLE_TLB);
+
+	//  CMoonPDFCtrl 的主调度接口
+	[ 
+		uuid(50FEEB59-40AA-4376-A625-B7E1CEADC4D8)	
+	]
+	dispinterface _DMoonPDF
+	{
+		properties:
+		methods:
+
+			[id(DISPID_ABOUTBOX)] void AboutBox();
+			[id(1)] void OpenLocalPdf(BSTR pdfPathName);//对外部接口，打开本地pdf文件
+			[id(2)] void SetPopMenuVisiable(VARIANT_BOOL bVisiable);//设置控件右键菜单显示隐藏
+			[id(3)] LONG GetPdfPageCount();//获取pdf页的数量
+			[id(4)] void GotoPage(LONG number);//跳转到具体的页
+			[id(5)] void EnableScrollToZoom(VARIANT_BOOL bEnable);//是否使能按住ctrl键滚动缩放
+			[id(6)] void EnableScrollToPage(VARIANT_BOOL bEnable);//是否使能滚动翻页
+			[id(7)] LONG GetCurrentPageIndex();
+	};
+
+	//  CMoonPDFCtrl 的事件调度接口
+
+	[ 
+		uuid(91A28D6A-936C-4DEF-812D-2F6E83108617)	
+	]
+	dispinterface _DMoonPDFEvents
+	{
+		properties:
+			//  事件接口没有任何属性
+
+		methods:
+			[id(1)] void OnCurrentPageChanged(LONG lCurrentPageIndex);
+	};
+
+	//  CMoonPDFCtrl 的类信息
+	[
+		uuid(8C99F46D-8421-478E-9787-5D424D215A2F)
+	]
+	coclass MoonPDF
+	{
+		[default] dispinterface _DMoonPDF;
+		[default, source] dispinterface _DMoonPDFEvents;
+	};
+
+};

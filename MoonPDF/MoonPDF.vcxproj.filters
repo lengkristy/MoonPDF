@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="头文件\dialog">
+      <UniqueIdentifier>{804489d4-72a9-4dfc-bc3b-aa4eb5ccf485}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\dialog">
+      <UniqueIdentifier>{b7aaae6e-b593-4c04-b442-4be12b88133b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\mupdf">
+      <UniqueIdentifier>{37d49fed-95df-4ef0-a5b9-2ca9271613e6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\mupdf">
+      <UniqueIdentifier>{e4a32d5c-853c-42f1-9de8-c3127294dde2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\common">
+      <UniqueIdentifier>{32bb6c45-40d8-4950-b454-c1c3b6f89348}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\common">
+      <UniqueIdentifier>{da668515-7051-4910-a797-cdc82878fa7b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="MoonPDF.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="MoonPDFCtrl.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="MoonPDFPropPage.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="dialog\MoonPDFDialog.cpp">
+      <Filter>源文件\dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="dialog\MoonPDFDialogTools.cpp">
+      <Filter>源文件\dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="mupdf\pdfapp.cpp">
+      <Filter>源文件\mupdf</Filter>
+    </ClCompile>
+    <ClCompile Include="common\StringHelper.cpp">
+      <Filter>源文件\common</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="MoonPDF.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="MoonPDFCtrl.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="MoonPDFPropPage.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dialog\MoonPDFDialog.h">
+      <Filter>头文件\dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="mupdf\pdfapp.h">
+      <Filter>头文件\mupdf</Filter>
+    </ClInclude>
+    <ClInclude Include="dialog\MoonPDFDialogTools.h">
+      <Filter>头文件\dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="common\StringHelper.h">
+      <Filter>头文件\common</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="MoonPDF.def">
+      <Filter>源文件</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="MoonPDF.rc">
+      <Filter>资源文件</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="MoonPDF.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="MoonPDFCtrl.bmp">
+      <Filter>资源文件</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Midl Include="MoonPDF.idl">
+      <Filter>源文件</Filter>
+    </Midl>
+  </ItemGroup>
+</Project>
