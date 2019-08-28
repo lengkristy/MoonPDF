@@ -1,6 +1,7 @@
 #pragma once
 #include <afxdialogex.h>
 #include <functional>
+#include "../mupdf/pdfapp.h"
 /*******************************************************************************************
  * 说明：用于加载pdf的对话框类，所有的pdf操作业务都由该类实现，pdf的相关实现是采用开源的
  *		 mupdf框架。
@@ -53,6 +54,8 @@ private:
 	void CreatePopMenu();
 	//打开文件选择框并且打开pdf文件
 	void OpenFileSlectWndAndOpenPdf();
+	//合并页
+	void PageMerge(pdfapp_t * app, pdf_document *doc_des, int page_from, int page_to, pdf_graft_map *graft_map);
 //外部函数
 public:
 	//获取窗体句柄
@@ -73,7 +76,13 @@ public:
 	void EnableScrollToPage(BOOL bEnable);
 	//获取当前pdf页索引
 	LONG GetCurrentPageIndex();
-
+	/**
+	 * 说明：提取pdf页面，然后另存为新的文件
+	 * 参数：
+	 *    pageIndex：提取的页索引
+	 *	  newPdfPath：保存文件的路径
+	 */
+	BOOL ExtractPageToSave(UINT pageIndex,CString newPdfPath);
 public:
 	//注册当前页改变事件
 	void RegistCurrentPageChangeEvent(PdfCurrentPageIndexChanged funcPdfCurrentPageIndexChanged);

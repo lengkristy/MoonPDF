@@ -47,6 +47,7 @@ protected:
 // 调度和事件 ID
 public:
 	enum {
+		dispidExtractPageToSave = 8L,
 		dispidGetCurrentPageIndex = 7L,
 		eventidOnCurrentPageChanged = 1L,
 		dispidEnableScrollToPage = 6L,
@@ -87,5 +88,6 @@ protected:
 		FireEvent(eventidOnCurrentPageChanged, EVENT_PARAM(VTS_I4), lCurrentPageIndex);
 	}
 	
+	SHORT ExtractPageToSave(LONG pageIndex, LPCTSTR newPdfPath);
 };
 

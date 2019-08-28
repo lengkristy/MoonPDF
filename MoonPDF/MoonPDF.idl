@@ -29,7 +29,8 @@ library MoonPDFLib
 			[id(4)] void GotoPage(LONG number);//跳转到具体的页
 			[id(5)] void EnableScrollToZoom(VARIANT_BOOL bEnable);//是否使能按住ctrl键滚动缩放
 			[id(6)] void EnableScrollToPage(VARIANT_BOOL bEnable);//是否使能滚动翻页
-			[id(7)] LONG GetCurrentPageIndex();
+			[id(7)] LONG GetCurrentPageIndex();//获取当前页显示的索引
+			[id(8)] SHORT ExtractPageToSave(LONG pageIndex, BSTR newPdfPath);//提取pdf某一页进行单独保存，成功返回0，失败返回-1
 	};
 
 	//  CMoonPDFCtrl 的事件调度接口

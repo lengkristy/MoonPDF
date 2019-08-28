@@ -368,4 +368,3 @@ void winreloadpage(pdfapp_t *app)
 {
 	SendMessage(g_pMoonPdfDialog->GetHWnd(), WM_APP, 0, 0);
 }
-

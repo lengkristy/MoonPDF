@@ -33,6 +33,7 @@ BEGIN_DISPATCH_MAP(CMoonPDFCtrl, COleControl)
 	DISP_FUNCTION_ID(CMoonPDFCtrl, "EnableScrollToZoom", dispidEnableScrollToZoom, EnableScrollToZoom, VT_EMPTY, VTS_BOOL)
 	DISP_FUNCTION_ID(CMoonPDFCtrl, "EnableScrollToPage", dispidEnableScrollToPage, EnableScrollToPage, VT_EMPTY, VTS_BOOL)
 	DISP_FUNCTION_ID(CMoonPDFCtrl, "GetCurrentPageIndex", dispidGetCurrentPageIndex, GetCurrentPageIndex, VT_I4, VTS_NONE)
+	DISP_FUNCTION_ID(CMoonPDFCtrl, "ExtractPageToSave", dispidExtractPageToSave, ExtractPageToSave, VT_I2, VTS_I4 VTS_BSTR)
 END_DISPATCH_MAP()
 
 // 事件映射
@@ -285,4 +286,16 @@ LONG CMoonPDFCtrl::GetCurrentPageIndex()
 
 	// TODO: 在此添加调度处理程序代码
 	return this->m_pMoonPDFDialog->GetCurrentPageIndex();
+}
+
+
+SHORT CMoonPDFCtrl::ExtractPageToSave(LONG pageIndex, LPCTSTR newPdfPath)
+{
+	AFX_MANAGE_STATE(AfxGetStaticModuleState());
+
+	// TODO: 在此添加调度处理程序代码
+	if (this->m_pMoonPDFDialog->ExtractPageToSave(pageIndex, newPdfPath))
+		return 0;
+	else
+		return -1;
 }

@@ -1,2 +1,10 @@
-﻿  MoonPDF.vcxproj -> D:\vswork\cppproject\MoonPDF\Release\MoonPDF.ocx
+﻿  MoonPDFCtrl.cpp
+    正在创建库 D:\vswork\cppproject\MoonPDF\Release\MoonPDF.lib 和对象 D:\vswork\cppproject\MoonPDF\Release\MoonPDF.exp
+msvcrt.lib(initializers.obj) : warning LNK4098: 默认库“libcmt.lib”与其他库的使用冲突；请使用 /NODEFAULTLIB:library
+  正在生成代码
+  1 of 7065 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  已完成代码的生成
+  MoonPDF.vcxproj -> D:\vswork\cppproject\MoonPDF\Release\MoonPDF.ocx
   MoonPDF.vcxproj -> D:\vswork\cppproject\MoonPDF\Release\MoonPDF.pdb (Full PDB)

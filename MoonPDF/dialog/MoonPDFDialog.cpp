@@ -5,7 +5,6 @@
 #include "../MoonPDF.h"
 #include "MoonPDFDialog.h"
 #include "afxdialogex.h"
-#include "../mupdf/pdfapp.h"
 #include "../common/StringHelper.h"
 
 /**************************************************************全局变量定义**********************************/
@@ -172,7 +171,7 @@ BOOL CMoonPDFDialog::OnMouseWheel(UINT nFlags, short zDelta, CPoint pt)
 		HandleMouse(oldx, oldy, 4, -1);
 	}
 
-	return CDialogEx::OnMouseWheel(nFlags, zDelta, pt);
+	return CDialogEx::OnMouseWheel(nFlags, zDelta, pt); 
 }
 
 void CMoonPDFDialog::OnLButtonDown(UINT nFlags, CPoint point)
@@ -429,6 +428,120 @@ void CMoonPDFDialog::EnableScrollToPage(BOOL bEnable)
 LONG CMoonPDFDialog::GetCurrentPageIndex()
 {
 	return g_app.pageno;
+}
+
+/**
+* 说明：提取pdf页面，然后另存为新的文件
+* 参数：
+*    pageIndex：提取的页索引
+*	  newPdfPath：保存文件的路径
+*/
+BOOL CMoonPDFDialog::ExtractPageToSave(UINT pageIndex, CString newPdfPath)
+{
+	pdf_write_options opts = { 0 };
+	pdf_document *doc_des = NULL;
+	pdf_graft_map *graft_map;
+	pdf_parse_write_options(ctx, &opts, "");
+	fz_try(ctx)
+	{
+		doc_des = pdf_create_document(ctx);
+	}
+	fz_catch(ctx)
+	{
+		return FALSE;
+	}
+	if (pageIndex > this->GetPdfPageCount() || pageIndex < 1)
+	{
+		return FALSE;
+	}
+	graft_map = pdf_new_graft_map(ctx, doc_des);
+	fz_try(ctx)
+	{
+		this->PageMerge(&g_app, doc_des, pageIndex, -1, graft_map);
+	}
+	fz_always(ctx)
+	{
+		pdf_drop_graft_map(ctx, graft_map);
+	}
+	fz_catch(ctx)
+	{
+		pdf_drop_document(ctx, doc_des);
+		return FALSE;
+	}
+	fz_try(ctx)
+	{
+		string path = StringHelper::UnicodeToUTF8(newPdfPath.GetBuffer());
+		pdf_save_document(ctx, doc_des, path.c_str(), &opts);
+		newPdfPath.ReleaseBuffer();
+	}
+	fz_always(ctx)
+	{
+		pdf_drop_document(ctx, doc_des);
+	}
+	fz_catch(ctx)
+	{
+		return FALSE;
+	}
+	return TRUE;
+}
+
+//合并页
+void CMoonPDFDialog::PageMerge(pdfapp_t * app, pdf_document *doc_des, int page_from, int page_to, pdf_graft_map *graft_map)
+{
+	pdf_obj *page_ref;
+	pdf_obj *page_dict = NULL;
+	pdf_obj *obj;
+	pdf_obj *ref = NULL;
+	int i;
+
+	/* Copy as few key/value pairs as we can. Do not include items that reference other pages. */
+	static pdf_obj * const copy_list[] = {
+		PDF_NAME(Contents),
+		PDF_NAME(Resources),
+		PDF_NAME(MediaBox),
+		PDF_NAME(CropBox),
+		PDF_NAME(BleedBox),
+		PDF_NAME(TrimBox),
+		PDF_NAME(ArtBox),
+		PDF_NAME(Rotate),
+		PDF_NAME(UserUnit)
+	};
+
+	fz_var(ref);
+	fz_var(page_dict);
+
+	fz_try(app->ctx)
+	{
+		page_ref = pdf_lookup_page_obj(app->ctx, (pdf_document*)app->doc, page_from - 1);
+		pdf_flatten_inheritable_page_items(app->ctx, page_ref);
+
+		/* Make a new page object dictionary to hold the items we copy from the source page. */
+		page_dict = pdf_new_dict(app->ctx, doc_des, 4);
+
+		pdf_dict_put(app->ctx, page_dict, PDF_NAME(Type), PDF_NAME(Page));
+
+		for (i = 0; i < nelem(copy_list); i++)
+		{
+			obj = pdf_dict_get(app->ctx, page_ref, copy_list[i]);
+			if (obj != NULL)
+				pdf_dict_put_drop(app->ctx, page_dict, copy_list[i], pdf_graft_mapped_object(app->ctx, graft_map, obj));
+		}
+
+		/* Add the page object to the destination document. */
+		ref = pdf_add_object(app->ctx, doc_des, page_dict);
+
+		/* Insert it into the page tree. */
+		pdf_insert_page(app->ctx, doc_des, page_to - 1, ref);
+	}
+	fz_always(app->ctx)
+	{
+		pdf_drop_obj(app->ctx, page_dict);
+		pdf_drop_obj(app->ctx, ref);
+	}
+	fz_catch(app->ctx)
+	{
+		fz_rethrow(app->ctx);
+	}
 }
 
 /////////////////////////////////////////////////////////外部事件注册/////////////////////////////////////////////
