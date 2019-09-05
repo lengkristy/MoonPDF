@@ -485,6 +485,38 @@ BOOL CMoonPDFDialog::ExtractPageToSave(UINT pageIndex, CString newPdfPath)
 	return TRUE;
 }
 
+/**
+* 按比例放大pdf
+*/
+void CMoonPDFDialog::PdfZoomIn()
+{
+	pdfapp_zoom_in(&g_app);
+}
+
+/**
+* 按比例缩小pdf
+*/
+void CMoonPDFDialog::PdfZoomOut()
+{
+	pdfapp_zoom_out(&g_app);
+}
+
+/**
+* 顺时针旋转90度
+*/
+void CMoonPDFDialog::PdfClockwiseRotation()
+{
+	pdf_clockwise_rotation(&g_app);
+}
+
+/**
+* 逆时针旋转90度
+*/
+void CMoonPDFDialog::PdfContrarotate()
+{
+	pdf_contrarotate(&g_app);
+}
+
 //合并页
 void CMoonPDFDialog::PageMerge(pdfapp_t * app, pdf_document *doc_des, int page_from, int page_to, pdf_graft_map *graft_map)
 {

@@ -16,12 +16,21 @@
   guiddef.h
   Processing C:\Program Files (x86)\Windows Kits\8.1\Include\um\oaidl.acf
   oaidl.acf
+  stdafx.cpp
+  StringHelper.cpp
+  MoonPDFDialog.cpp
+  MoonPDFDialogTools.cpp
+  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
+  MoonPDF.cpp
+  MoonPDFCtrl.cpp
+  MoonPDFPropPage.cpp
+  pdfapp.cpp
+mupdf\pdfapp.cpp(228): warning C4838: 从“int”转换到“float”需要收缩转换
+mupdf\pdfapp.cpp(1481): warning C4838: 从“float”转换到“int”需要收缩转换
     正在创建库 D:\vswork\cppproject\MoonPDF\Release\MoonPDF.lib 和对象 D:\vswork\cppproject\MoonPDF\Release\MoonPDF.exp
 msvcrt.lib(initializers.obj) : warning LNK4098: 默认库“libcmt.lib”与其他库的使用冲突；请使用 /NODEFAULTLIB:library
   正在生成代码
-  0 of 7065 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    6 functions had inline decision re-evaluated but remain unchanged
+  All 7077 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   已完成代码的生成
   MoonPDF.vcxproj -> D:\vswork\cppproject\MoonPDF\Release\MoonPDF.ocx
   MoonPDF.vcxproj -> D:\vswork\cppproject\MoonPDF\Release\MoonPDF.pdb (Full PDB)

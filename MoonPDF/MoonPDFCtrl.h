@@ -47,6 +47,10 @@ protected:
 // 调度和事件 ID
 public:
 	enum {
+		dispidPdfContrarotate = 12L,
+		dispidPdfClockwiseRotation = 11L,
+		dispidPdfZoomOut = 10L,
+		dispidPdfZoomIn = 9L,
 		dispidExtractPageToSave = 8L,
 		dispidGetCurrentPageIndex = 7L,
 		eventidOnCurrentPageChanged = 1L,
@@ -89,5 +93,9 @@ protected:
 	}
 	
 	SHORT ExtractPageToSave(LONG pageIndex, LPCTSTR newPdfPath);
+	void PdfZoomIn();
+	void PdfZoomOut();
+	void PdfClockwiseRotation();
+	void PdfContrarotate();
 };
 

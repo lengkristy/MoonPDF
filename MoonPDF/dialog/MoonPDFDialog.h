@@ -83,6 +83,26 @@ public:
 	 *	  newPdfPath：保存文件的路径
 	 */
 	BOOL ExtractPageToSave(UINT pageIndex,CString newPdfPath);
+
+	/**
+	 * 按比例放大pdfS
+	 */
+	void PdfZoomIn();
+
+	/**
+	 * 按比例缩小pdf
+	 */
+	void PdfZoomOut();
+
+	/**
+	 * 顺时针旋转90度
+	 */
+	void PdfClockwiseRotation();
+
+	/**
+	 * 逆时针旋转90度
+	 */
+	void PdfContrarotate();
 public:
 	//注册当前页改变事件
 	void RegistCurrentPageChangeEvent(PdfCurrentPageIndexChanged funcPdfCurrentPageIndexChanged);

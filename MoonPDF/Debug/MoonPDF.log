@@ -1,3 +1,34 @@
-﻿  MoonPDFCtrl.cpp
+﻿  Processing .\MoonPDF.idl
+  MoonPDF.idl
+  Processing C:\Program Files (x86)\Windows Kits\8.1\Include\um\oaidl.idl
+  oaidl.idl
+  Processing C:\Program Files (x86)\Windows Kits\8.1\Include\um\objidl.idl
+  objidl.idl
+  Processing C:\Program Files (x86)\Windows Kits\8.1\Include\um\unknwn.idl
+  unknwn.idl
+  Processing C:\Program Files (x86)\Windows Kits\8.1\Include\shared\wtypes.idl
+  wtypes.idl
+  Processing C:\Program Files (x86)\Windows Kits\8.1\Include\shared\wtypesbase.idl
+  wtypesbase.idl
+  Processing C:\Program Files (x86)\Windows Kits\8.1\Include\shared\basetsd.h
+  basetsd.h
+  Processing C:\Program Files (x86)\Windows Kits\8.1\Include\shared\guiddef.h
+  guiddef.h
+  Processing C:\Program Files (x86)\Windows Kits\8.1\Include\um\oaidl.acf
+  oaidl.acf
+  stdafx.cpp
+  pdfapp.cpp
+d:\vswork\cppproject\moonpdf\moonpdf\mupdf\pdfapp.cpp(228): warning C4838: 从“int”转换到“float”需要收缩转换
+d:\vswork\cppproject\moonpdf\moonpdf\mupdf\pdfapp.cpp(1481): warning C4838: 从“float”转换到“int”需要收缩转换
+  MoonPDFPropPage.cpp
+  MoonPDFCtrl.cpp
+  MoonPDF.cpp
+  MoonPDFDialogTools.cpp
+  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
+  MoonPDFDialog.cpp
+  StringHelper.cpp
+  正在生成代码...
+    正在创建库 D:\vswork\cppproject\MoonPDF\Debug\MoonPDF.lib 和对象 D:\vswork\cppproject\MoonPDF\Debug\MoonPDF.exp
+msvcrtd.lib(initializers.obj) : warning LNK4098: 默认库“libcmtd.lib”与其他库的使用冲突；请使用 /NODEFAULTLIB:library
   MoonPDF.vcxproj -> D:\vswork\cppproject\MoonPDF\Debug\MoonPDF.ocx
   MoonPDF.vcxproj -> D:\vswork\cppproject\MoonPDF\Debug\MoonPDF.pdb (Partial PDB)

@@ -4,7 +4,7 @@
 
 
  /* File created by MIDL compiler version 8.00.0603 */
-/* at Wed Aug 28 14:03:15 2019
+/* at Thu Sep 05 09:47:16 2019
  */
 /* Compiler settings for MoonPDF.idl:
     Oicf, W1, Zp8, env=Win32 (32b run), target_arch=X86 8.00.0603 

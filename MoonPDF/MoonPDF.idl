@@ -31,6 +31,10 @@ library MoonPDFLib
 			[id(6)] void EnableScrollToPage(VARIANT_BOOL bEnable);//是否使能滚动翻页
 			[id(7)] LONG GetCurrentPageIndex();//获取当前页显示的索引
 			[id(8)] SHORT ExtractPageToSave(LONG pageIndex, BSTR newPdfPath);//提取pdf某一页进行单独保存，成功返回0，失败返回-1
+			[id(9)] void PdfZoomIn();//放大pdf
+			[id(10)] void PdfZoomOut();//缩小pdf
+			[id(11)] void PdfClockwiseRotation();//pdf顺时针旋转90度
+			[id(12)] void PdfContrarotate();//pdf逆时针旋转90度
 	};
 
 	//  CMoonPDFCtrl 的事件调度接口

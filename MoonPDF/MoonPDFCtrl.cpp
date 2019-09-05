@@ -34,6 +34,10 @@ BEGIN_DISPATCH_MAP(CMoonPDFCtrl, COleControl)
 	DISP_FUNCTION_ID(CMoonPDFCtrl, "EnableScrollToPage", dispidEnableScrollToPage, EnableScrollToPage, VT_EMPTY, VTS_BOOL)
 	DISP_FUNCTION_ID(CMoonPDFCtrl, "GetCurrentPageIndex", dispidGetCurrentPageIndex, GetCurrentPageIndex, VT_I4, VTS_NONE)
 	DISP_FUNCTION_ID(CMoonPDFCtrl, "ExtractPageToSave", dispidExtractPageToSave, ExtractPageToSave, VT_I2, VTS_I4 VTS_BSTR)
+	DISP_FUNCTION_ID(CMoonPDFCtrl, "PdfZoomIn", dispidPdfZoomIn, PdfZoomIn, VT_EMPTY, VTS_NONE)
+	DISP_FUNCTION_ID(CMoonPDFCtrl, "PdfZoomOut", dispidPdfZoomOut, PdfZoomOut, VT_EMPTY, VTS_NONE)
+	DISP_FUNCTION_ID(CMoonPDFCtrl, "PdfClockwiseRotation", dispidPdfClockwiseRotation, PdfClockwiseRotation, VT_EMPTY, VTS_NONE)
+	DISP_FUNCTION_ID(CMoonPDFCtrl, "PdfContrarotate", dispidPdfContrarotate, PdfContrarotate, VT_EMPTY, VTS_NONE)
 END_DISPATCH_MAP()
 
 // 事件映射
@@ -298,4 +302,40 @@ SHORT CMoonPDFCtrl::ExtractPageToSave(LONG pageIndex, LPCTSTR newPdfPath)
 		return 0;
 	else
 		return -1;
+}
+
+
+void CMoonPDFCtrl::PdfZoomIn()
+{
+	AFX_MANAGE_STATE(AfxGetStaticModuleState());
+
+	// TODO: 在此添加调度处理程序代码
+	this->m_pMoonPDFDialog->PdfZoomIn();
+}
+
+
+void CMoonPDFCtrl::PdfZoomOut()
+{
+	AFX_MANAGE_STATE(AfxGetStaticModuleState());
+
+	// TODO: 在此添加调度处理程序代码
+	this->m_pMoonPDFDialog->PdfZoomOut();
+}
+
+
+void CMoonPDFCtrl::PdfClockwiseRotation()
+{
+	AFX_MANAGE_STATE(AfxGetStaticModuleState());
+
+	// TODO: 在此添加调度处理程序代码
+	this->m_pMoonPDFDialog->PdfClockwiseRotation();
+}
+
+
+void CMoonPDFCtrl::PdfContrarotate()
+{
+	AFX_MANAGE_STATE(AfxGetStaticModuleState());
+
+	// TODO: 在此添加调度处理程序代码
+	this->m_pMoonPDFDialog->PdfContrarotate();
 }

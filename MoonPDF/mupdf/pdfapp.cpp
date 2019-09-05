@@ -1733,3 +1733,43 @@ void pdfapp_postblit(pdfapp_t *app)
 		app->in_transit = 0;
 	}
 }
+
+/**
+* 函数说明：
+* 放大pdf
+*/
+void pdfapp_zoom_in(pdfapp_t *app)
+{
+	app->resolution = zoom_in(app->resolution);
+	pdfapp_showpage(app, 0, 1, 1, 0, 0);
+}
+
+/**
+* 函数说明：
+* 缩小pdf
+*/
+void pdfapp_zoom_out(pdfapp_t *app)
+{
+	app->resolution = zoom_out(app->resolution);
+	pdfapp_showpage(app, 0, 1, 1, 0, 0);
+}
+
+/**
+* 函数说明：
+*   pdf顺时针旋转90度
+*/
+void pdf_clockwise_rotation(pdfapp_t *app)
+{
+	app->rotate += 90;
+	pdfapp_showpage(app, 0, 1, 1, 0, 0);
+}
+
+/**
+* 函数说明：
+*   pdf逆时针旋转90度
+*/
+void pdf_contrarotate(pdfapp_t *app)
+{
+	app->rotate -= 90;
+	pdfapp_showpage(app, 0, 1, 1, 0, 0);
+}
